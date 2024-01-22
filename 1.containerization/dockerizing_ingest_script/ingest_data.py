@@ -1,11 +1,19 @@
 import argparse
+import gzip
 import os
+import shutil
 import time
 
 import pandas as pd
 from sqlalchemy import create_engine
 
 parser = argparse.ArgumentParser(description="Ingest CSV data to Postgres DB")
+
+
+def extract_gzip(input_file, output_file):
+    with gzip.open(input_file, "rb") as f_in:
+        with open(output_file, "wb") as f_out:
+            shutil.copyfileobj(f_in, f_out)
 
 
 def convert_datetime(df):
