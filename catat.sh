@@ -1,6 +1,6 @@
 python ingest_data.py \
     --user=gengsu07\
-    --password=Gengsu!sh3r3\
+    --password=sgwi2341\
     --host=localhost\
     --port=5433\
     --db=ny_taxi\
