@@ -1,5 +1,7 @@
 pg-data
 *.json
+*.duckdb
+*.wal
 
     # Local .terraform directories
 **/.terraform/*
