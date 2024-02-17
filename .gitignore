@@ -4,6 +4,8 @@ pg-data
 *.wal
 keys/
 mage_data/
+*.csv.gz
+*.parquet
 
     # Local .terraform directories
 **/.terraform/*
