@@ -16,6 +16,13 @@ init_url = "https://github.com/DataTalksClub/nyc-tlc-data/releases/download/"
 # switch out the bucketname
 # switch out the bucketname
 BUCKET = os.environ.get("GCP_GCS_BUCKET", "gengsu_nyc")
+fhv_dtype = {
+    "dispatching_base_num": "string",
+    "PUlocationID": "Int64",
+    "DOlocationID": "Int64",
+    "SR_Flag": "Int64",
+}
+parse_dates = ["pickup_datetime", "dropOff_datetime"]
 
 
 def upload_to_gcs(bucket, object_name, local_file):
@@ -50,7 +57,9 @@ def web_to_gcs(year, service):
         print(f"Local: {file_name}")
 
         # read it back into a parquet file
-        df = pd.read_csv(file_name, compression="gzip")
+        df = pd.read_csv(
+            file_name, compression="gzip", dtype=fhv_dtype, parse_dates=parse_dates
+        )
         file_name = file_name.replace(".csv.gz", ".parquet")
         df.to_parquet(file_name, engine="pyarrow")
         print(f"Parquet: {file_name}")
