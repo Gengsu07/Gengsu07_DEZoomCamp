@@ -6,6 +6,7 @@ keys/
 mage_data/
 *.csv.gz
 *.parquet
+.tar.gz
 
     # Local .terraform directories
 **/.terraform/*
