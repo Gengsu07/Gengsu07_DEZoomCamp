@@ -1,5 +1,6 @@
 pg-data
 *.json
+fhvhv_tripdata_2021-01.csv
 *.duckdb
 *.wal
 keys/
