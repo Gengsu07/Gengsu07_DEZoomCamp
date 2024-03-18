@@ -19,3 +19,21 @@
 set PYTHONPATH:%SPARK_HOME%\python\;%SPARK_HOME%\python\lib\py4j-0.10.9.7-src.zip;%PYTHONPATH%
 
 ![1710693625373](image/InstalSparkWindowsGengsu/1710693625373.png)
+
+### LINUX
+
+Ikuti langkah di setup linux
+
+buka .bashrc => nano ~/.bashrc
+tambahkan sesuai directory nya
+
+```bash
+export JAVA_HOME=/workspaces/spark/jdk-11.0.2
+export PATH="${JAVA_HOME}/bin:${PATH}"
+
+export SPARK_HOME=/workspaces/spark/spark-3.3.2-bin-hadoop3
+export PATH="${SPARK_HOME}/bin:${PATH}"
+
+export PYTHONPATH="${SPARK_HOME}/python/:$PYTHONPATH"
+export PYTHONPATH="${SPARK_HOME}/python/lib/py4j-0.10.9.5-src.zip:$PYTHONPATH"
+```
