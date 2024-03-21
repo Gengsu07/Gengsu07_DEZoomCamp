@@ -3,6 +3,7 @@ pg-data
 fhvhv_tripdata_2021-01.csv
 *.duckdb
 *.wal
+data/*
 keys/
 mage_data/
 *.csv.gz
