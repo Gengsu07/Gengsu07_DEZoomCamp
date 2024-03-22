@@ -1,15 +1,15 @@
 version: "3.7"
 services:
-  # pyspark:
-  #   image: jupyter/pyspark-notebook:latest
-  #   environment:
-  #     JUPYTER_ENABLE_LAB: "yes"
-  #     GRANT_SUDO: "yes"
-  #     GEN_CERT: "yes"
-  #   ports:
-  #     - "9999:8888"
-  #   volumes:
-  #     - ./data:/home/jovyan/work
+  pyspark:
+    image: jupyter/pyspark-notebook:latest
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"
+      GRANT_SUDO: "yes"
+      GEN_CERT: "yes"
+    ports:
+      - "9999:8888"
+    volumes:
+      - ./data:/home/jovyan/work
   # Redpanda cluster
   redpanda-1:
     image: docker.redpanda.com/vectorized/redpanda:v22.3.5
@@ -27,11 +27,11 @@ services:
       - --kafka-addr
       - PLAINTEXT://0.0.0.0:29092,OUTSIDE://0.0.0.0:9092
       - --advertise-kafka-addr
-      - PLAINTEXT://redpanda-1:29092,OUTSIDE://localhost:9092
+      - PLAINTEXT://redpanda-1:29092,OUTSIDE://pyspark:9092
       - --pandaproxy-addr
       - PLAINTEXT://0.0.0.0:28082,OUTSIDE://0.0.0.0:8082
       - --advertise-pandaproxy-addr
-      - PLAINTEXT://redpanda-1:28082,OUTSIDE://localhost:8082
+      - PLAINTEXT://redpanda-1:28082,OUTSIDE://pyspark:8082
       - --rpc-addr
       - 0.0.0.0:33145
       - --advertise-rpc-addr
